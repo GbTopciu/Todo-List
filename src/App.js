@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CreateTodo from "./components/CreateTodo";
+import TodoList from "./components/TodoList";
+document.body.style.backgroundColor = "#FF7F50";
 
 function App() {
+  const [name, setName] = useState ("Gabriel")
+  const [postIndex, setPostIndex] = useState("");
+  const[todoPosts, setTodoPosts] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CreateTodo postIndex={postIndex} setPostIndex={setPostIndex} todoPosts={todoPosts} setTodoPosts={setTodoPosts}/>
+      <TodoList todoPosts={todoPosts} setTodoPosts={setTodoPosts} name={name} />
     </div>
   );
 }
